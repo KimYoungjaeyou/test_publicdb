@@ -25,8 +25,8 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int book_id;
 	
-	@Column (nullable = true)
-	private String user_id;
+	@Column (name="user_id",nullable = true)
+	private String userId;
 	
 	@Column (nullable = true)
 	private int concert_id;
@@ -47,11 +47,11 @@ public class Book {
 	}
 
 	public String getUser_id() {
-		return user_id;
+		return userId;
 	}
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setUser_id(String userId) {
+		this.userId = userId;
 	}
 
 	public int getConcert_id() {
@@ -88,7 +88,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [book_id=" + book_id + ", user_id=" + user_id + ", concert_id=" + concert_id + ", book_start_time="
+		return "Book [book_id=" + book_id + ", user_id=" + userId + ", concert_id=" + concert_id + ", book_start_time="
 				+ book_start_time + ", book_end_time=" + book_end_time + ", book_status=" + book_status + "]";
 	}
 

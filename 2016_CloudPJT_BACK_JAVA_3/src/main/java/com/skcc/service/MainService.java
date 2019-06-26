@@ -1,5 +1,6 @@
 package com.skcc.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -7,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skcc.domain.book.Book;
-import com.skcc.domain.book.Status;
 import com.skcc.domain.concert.Concert;
 import com.skcc.domain.payment.Payment;
+import com.skcc.domain.user.User;
 import com.skcc.repository.BookRepository;
 import com.skcc.repository.ConcertRepository;
 import com.skcc.repository.PaymentRepository;
@@ -34,7 +35,21 @@ public class MainService {
 		this.bookRepository = bookRepository;
 	}
 	
-	
+	public List<Book> getBookinfo(String user_id) {
+
+		
+//		List<Book> books = bookRepository.findAll();
+//		List<Book> rtbooks = new ArrayList<Book>();
+//		for(Book book : books){
+//			if(book.getUser_id()==user_id) {
+//				
+//				rtbooks.add(book);
+//			}
+//			
+//		}
+		return bookRepository.findByUserId(user_id);
+		
+	}
 	
 	public void requestBook(Book book) {
 		bookRepository.save(book);
